@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MoneySpender</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="header_name">Rudolf</string>
+    <string name="header_email">rudihoffer@gmail.com</string>
+    <string name="cost_element">Costs</string>
+    <string name="nav_open">Open navigation</string>
+    <string name="nav_close">Close navigation</string>
+    <string name="nav_statistic">Statistic</string>
+    <string name="cost_sum">0.00</string>
+    <string name="cost_category">Select category</string>
+    <string name="cost_title">Insert title</string>
+    <string name="cost_tags">Add tags</string>
+    <string name="cost_date">Add date</string>
+    <string name="cost_note">Insert note</string>
+    <string name="cost_expense">Expense</string>
+    <string name="cost_income">Income</string>
+    <string name="cost_button">OK</string>
+</resources>
