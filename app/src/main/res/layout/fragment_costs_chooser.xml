@@ -45,11 +45,6 @@
                 android:layout_marginTop="25dp"
                 android:src="@drawable/ic_format_align_left" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:src="@drawable/ic_exposure"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -97,24 +92,7 @@
                 android:layout_gravity="end"
                 android:layout_height="2dp"
                 android:background="?android:attr/listDivider" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="25dp"
-                android:layout_gravity="end"
-                android:orientation="horizontal">
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/cost_expense"
-                android:layout_gravity="end" />
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/cost_income"/>
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"

@@ -18,4 +18,14 @@
     <string name="cost_expense">Expense</string>
     <string name="cost_income">Income</string>
     <string name="cost_button">OK</string>
+    <string name="choose_uncategorized">Uncategorized</string>
+    <string name="choose_food">Food</string>
+    <string name="choose_entertainment">Entertainment</string>
+    <string name="choose_car">Car</string>
+    <string name="choose_home">Home</string>
+    <string name="choose_clothing">Clothing</string>
+    <string name="choose_electronics">Electronics</string>
+    <string name="choose_health">Health and beaty</string>
+    <string name="choose_children">Children</string>
+    <string name="choose_work">Work</string>
 </resources>
