@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import com.practice.moneyspender.R;
 
@@ -36,6 +37,22 @@ public class CostsChooserFragment extends Fragment {
 
             }
         });
+
+
+        TextView costCategory = view.findViewById(R.id.cost_category);
+        costCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                fm.beginTransaction()
+                        .addToBackStack(null)
+                        .replace(R.id.content_framelayout, new ChooseCategoriesFragment())
+                        .commit();
+
+            }
+        });
+
 
         // Inflate the layout for this fragment
         return view;
