@@ -7,12 +7,36 @@ import android.arch.persistence.room.PrimaryKey;
 public class CategoriesDatabase {
 
 
-    @PrimaryKey
-    public long id;
+    @PrimaryKey(autoGenerate =  true)
+    private long id;
 
-    public String categoryName;
+    private String categoryName;
 
-    public String firstLetterCategory;
+    private String firstLetterCategory;
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
 
 
+
+    public void setFirstLetterCategory(String firstLetterCategory) {
+        this.firstLetterCategory = firstLetterCategory;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public String getFirstLetterCategory() {
+        return firstLetterCategory;
+    }
 }

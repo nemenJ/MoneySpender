@@ -17,6 +17,10 @@ import android.widget.ImageView;
 
 
 import com.practice.moneyspender.R;
+import com.practice.moneyspender.database.App;
+import com.practice.moneyspender.database.AppDataBase;
+import com.practice.moneyspender.database.CategoriesDao;
+import com.practice.moneyspender.database.CategoriesDatabase;
 import com.practice.moneyspender.view.fragments.StatisticFragment;
 import com.practice.moneyspender.view.fragments.YourCostFragment;
 import com.squareup.picasso.Picasso;
@@ -30,6 +34,10 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //DatabaseInit
+
+
 
         //Toolbar add
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
