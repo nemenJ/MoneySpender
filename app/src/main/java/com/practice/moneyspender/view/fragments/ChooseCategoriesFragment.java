@@ -44,7 +44,7 @@ public class ChooseCategoriesFragment extends Fragment {
 
 
         //Adding toolbar and back to CostChooser
-        View view = inflater.inflate(R.layout.choose_categories_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_choose_categories, container, false);
         Toolbar toolbar = view.findViewById(R.id.choose_categories_toolbar);
 
         TextView circleWord = view.findViewById(R.id.circle_category_name);
@@ -63,6 +63,7 @@ public class ChooseCategoriesFragment extends Fragment {
             @Override
             public void onChanged(@Nullable List<CategoriesDatabase> categoriesDatabases) {
                 adapter.setCategories(categoriesDatabases);
+
             }
         });
 

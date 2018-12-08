@@ -8,6 +8,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
+import java.util.concurrent.Executors;
+
 @Database(entities =  {CategoriesDatabase.class}, version = 1)
 public abstract class AppDataBase extends RoomDatabase {
 
@@ -44,6 +46,18 @@ public abstract class AppDataBase extends RoomDatabase {
             new PopulateByAsyncTask(INSTANCE).execute();
 
         }
+
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+            Executors.newSingleThreadScheduledExecutor().execute(new Runnable() {
+                @Override
+                public void run() {
+                    getInstance().categoriesDao().insert(CategoriesDatabase.categories());
+                }
+            });
+        }
+
     };
 
 
@@ -62,10 +76,6 @@ public abstract class AppDataBase extends RoomDatabase {
         protected Void doInBackground(final Void... params) {
 
 
-                CategoriesDatabase ct = new CategoriesDatabase();
-                ct.setFirstLetterCategory("F");
-                ct.setCategoryName("Food");
-                ctDao.insert(ct);
 
 
             return null;

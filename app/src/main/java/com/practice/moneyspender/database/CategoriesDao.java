@@ -20,7 +20,7 @@ public interface CategoriesDao {
 
 
     @Insert
-    void insert(CategoriesDatabase categories);
+    void insert(CategoriesDatabase ... categories);
 
     @Update
     void update(CategoriesDatabase categories);

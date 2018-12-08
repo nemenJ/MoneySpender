@@ -1,6 +1,5 @@
 package com.practice.moneyspender.view.activities;
 
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -9,21 +8,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
 
 import com.practice.moneyspender.R;
-import com.practice.moneyspender.adapters.CategoriesAdapter;
-import com.practice.moneyspender.database.App;
-import com.practice.moneyspender.database.AppDataBase;
-import com.practice.moneyspender.database.CategoriesDao;
-import com.practice.moneyspender.database.CategoriesDatabase;
 import com.practice.moneyspender.view.fragments.StatisticFragment;
 import com.practice.moneyspender.view.fragments.YourCostFragment;
 import com.squareup.picasso.Picasso;

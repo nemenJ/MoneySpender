@@ -20,6 +20,8 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     private List<CategoriesDatabase> ctDatabase;
 
 
+
+
     class CategoriesViewHolder extends RecyclerView.ViewHolder{
         private TextView circleCategoryTextView;
         private TextView nameCategoryTextView;

@@ -2,6 +2,7 @@ package com.practice.moneyspender.database;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -16,7 +17,7 @@ public class DatabaseInit {
 
 
 
-    DatabaseInit(Application application){
+    DatabaseInit(Context application){
 
         AppDataBase appDb = AppDataBase.getAppDataBase(application);
 

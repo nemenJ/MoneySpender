@@ -3,16 +3,26 @@ package com.practice.moneyspender.database;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class CategoriesDatabase {
 
 
+    public CategoriesDatabase(String firstLetterCategory, String categoryName) {
+        this.firstLetterCategory = firstLetterCategory;
+        this.categoryName = categoryName;
+    }
+
     @PrimaryKey(autoGenerate =  true)
     private long id;
 
-    private String categoryName;
 
     private String firstLetterCategory;
+
+    private String categoryName;
+
 
     public void setId(long id) {
         this.id = id;
@@ -39,4 +49,25 @@ public class CategoriesDatabase {
     public String getFirstLetterCategory() {
         return firstLetterCategory;
     }
+
+
+    public static CategoriesDatabase[] categories(){
+
+        return new  CategoriesDatabase[]{
+
+                new CategoriesDatabase("F", "Food"),
+                new CategoriesDatabase("F", "Food"),
+                new CategoriesDatabase("F", "Food"),
+                new CategoriesDatabase("F", "Food"),
+                new CategoriesDatabase("F", "Food"),
+                new CategoriesDatabase("F", "Food"),
+                new CategoriesDatabase("F", "Food"),
+                new CategoriesDatabase("F", "Food"),
+                new CategoriesDatabase("F", "Food"),
+
+        };
+
+    }
+
+
 }
