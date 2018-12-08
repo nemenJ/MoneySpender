@@ -9,16 +9,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.practice.moneyspender.R;
+import com.practice.moneyspender.database.CategoriesDatabase;
+
+import java.util.List;
 
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHolder> {
 
-    private TextView circleCategoryTextView;
-    private TextView nameCategoryTextView;
+    private List<CategoriesDatabase> ctDatabase;
 
 
     class CategoriesViewHolder extends RecyclerView.ViewHolder{
-
+        private TextView circleCategoryTextView;
+        private TextView nameCategoryTextView;
 
         public CategoriesViewHolder(LayoutInflater inflater, ViewGroup parent) {
 
@@ -30,6 +33,8 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
         }
     }
+
+
 
     @NonNull
     @Override
