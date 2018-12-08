@@ -18,6 +18,7 @@ public interface CategoriesDao {
     @Query("SELECT * FROM categoriesdatabase WHERE id = :id")
     CategoriesDatabase getById(long id);
 
+
     @Insert
     void insert(CategoriesDatabase categories);
 

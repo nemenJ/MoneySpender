@@ -25,7 +25,6 @@
             android:background="@drawable/circle"
             android:gravity="center"
             android:id="@+id/circle_category_name"
-            android:text="F"
             android:textColor="@color/white"
             android:textSize="30dp" />
 
@@ -35,7 +34,6 @@
             android:id="@+id/category_name"
             android:layout_gravity="center_vertical"
             android:gravity="start"
-            android:text="@string/choose_food"
             android:layout_marginLeft="10dp"
             android:textSize="18sp" />
 

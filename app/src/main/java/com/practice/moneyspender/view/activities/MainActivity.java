@@ -9,6 +9,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -17,6 +19,7 @@ import android.widget.ImageView;
 
 
 import com.practice.moneyspender.R;
+import com.practice.moneyspender.adapters.CategoriesAdapter;
 import com.practice.moneyspender.database.App;
 import com.practice.moneyspender.database.AppDataBase;
 import com.practice.moneyspender.database.CategoriesDao;
@@ -77,6 +80,8 @@ public class MainActivity extends AppCompatActivity
                 .load("https://cdn.dribbble.com/users/74133/screenshots/1888531/avatar-cool.jpg")
                 .fit()
                 .into(imageViewNavHeader);
+
+
     }
 
     //Method for choosing commands on Navigation Pannel

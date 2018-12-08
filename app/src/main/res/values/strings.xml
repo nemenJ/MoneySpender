@@ -28,4 +28,6 @@
     <string name="choose_health">Health and beaty</string>
     <string name="choose_children">Children</string>
     <string name="choose_work">Work</string>
+    <string name="ct_name">No text</string>
+    <string name="ct_word">No word</string>
 </resources>

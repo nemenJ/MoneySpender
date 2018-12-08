@@ -1,5 +1,6 @@
 package com.practice.moneyspender.adapters;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,9 +24,9 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
         private TextView circleCategoryTextView;
         private TextView nameCategoryTextView;
 
-        public CategoriesViewHolder(LayoutInflater inflater, ViewGroup parent) {
+        public CategoriesViewHolder(View itemView) {
 
-            super(inflater.inflate(R.layout.choose_categories_list, parent));
+            super(itemView);
 
 
             circleCategoryTextView = itemView.findViewById(R.id.circle_category_name);
@@ -35,29 +36,61 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     }
 
 
+    private final LayoutInflater inflater;
+
+    public CategoriesAdapter(Context context){
+        inflater = LayoutInflater.from(context);
+    }
 
     @NonNull
     @Override
     public CategoriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        return new  CategoriesViewHolder(inflater, parent);
+        View categoriesView = inflater.inflate(R.layout.choose_categories_list, parent, false);
+        return new  CategoriesViewHolder(categoriesView);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoriesViewHolder categoriesViewHolder, int i) {
+    public void onBindViewHolder(@NonNull CategoriesViewHolder categoriesViewHolder, int position) {
 
+        if (ctDatabase != null) {
 
+            CategoriesDatabase db = ctDatabase.get(position);
+            categoriesViewHolder.circleCategoryTextView.setText(db.getFirstLetterCategory());
+            categoriesViewHolder.nameCategoryTextView.setText(db.getCategoryName());
 
+        } else {
 
+            categoriesViewHolder.nameCategoryTextView.setText(R.string.ct_name);
+            categoriesViewHolder.circleCategoryTextView.setText(R.string.ct_word);
 
+        }
     }
+
+
+
+       public void setCategories(List<CategoriesDatabase> ct){
+
+            ctDatabase = ct;
+            notifyDataSetChanged();
+
+        }
+
+
+
+
+
 
     @Override
     public int getItemCount() {
-        return 10;
+
+        if(ctDatabase != null)
+
+            return ctDatabase.size();
+
+        else return 0;
     }
+
 
 
 

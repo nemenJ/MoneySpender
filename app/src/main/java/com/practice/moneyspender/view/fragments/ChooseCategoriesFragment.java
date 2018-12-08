@@ -1,33 +1,40 @@
 package com.practice.moneyspender.view.fragments;
 
 
-import android.arch.persistence.db.SupportSQLiteOpenHelper;
-import android.arch.persistence.room.DatabaseConfiguration;
-import android.arch.persistence.room.InvalidationTracker;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
-
 import com.practice.moneyspender.R;
-import com.practice.moneyspender.database.App;
-import com.practice.moneyspender.database.AppDataBase;
-import com.practice.moneyspender.database.CategoriesDao;
+import com.practice.moneyspender.adapters.CategoriesAdapter;
 import com.practice.moneyspender.database.CategoriesDatabase;
-import com.practice.moneyspender.database.DatabaseInit;
+import com.practice.moneyspender.database.CategoriesViewModel;
 
 import java.util.List;
 
 public class ChooseCategoriesFragment extends Fragment {
 
 
+    private CategoriesViewModel ctView;
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,6 +51,20 @@ public class ChooseCategoriesFragment extends Fragment {
         TextView categoryName = view.findViewById(R.id.category_name);
 
 
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_choose);
+        final CategoriesAdapter adapter = new CategoriesAdapter(getActivity());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+
+        ctView = ViewModelProviders.of(this).get(CategoriesViewModel.class);
+
+        ctView.getCategoriesAll().observe(this, new Observer<List<CategoriesDatabase>>() {
+            @Override
+            public void onChanged(@Nullable List<CategoriesDatabase> categoriesDatabases) {
+                adapter.setCategories(categoriesDatabases);
+            }
+        });
 
 
 
