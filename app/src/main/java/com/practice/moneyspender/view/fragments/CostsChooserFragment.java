@@ -16,6 +16,9 @@ import com.practice.moneyspender.R;
 public class CostsChooserFragment extends Fragment {
 
 
+    private static final String NAME = "name";
+    private String name;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,6 +28,7 @@ public class CostsChooserFragment extends Fragment {
 
         //Тупа back to home activity , i find it on  https://medium.com/android-grid/how-to-implement-back-up-button-on-toolbar-android-studio-c272bbc0f1b0
         Toolbar toolbar = view.findViewById(R.id.toolbar_choose_fragment);
+
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_keyboard_arrow_left);
         toolbar.setNavigationOnClickListener(new View.OnClickListener(){
@@ -37,6 +41,11 @@ public class CostsChooserFragment extends Fragment {
 
             }
         });
+
+
+
+        name = getArguments().getString(NAME);
+
 
 
         TextView costCategory = view.findViewById(R.id.cost_category);
@@ -56,6 +65,17 @@ public class CostsChooserFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return view;
+    }
+
+
+    public static CostsChooserFragment newInstance(String name) {
+
+        Bundle args = new Bundle();
+        args.putString(NAME, name);
+        CostsChooserFragment fragment = new CostsChooserFragment();
+        fragment.setArguments(args);
+        return fragment;
+        
     }
 
 }
