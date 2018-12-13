@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">MoneySpender</string>
+    <string name="app_name">Everyday expenses</string>
+    <string name="fragment_chooser">New transaction</string>
+    <string name="fragment_category">Category list</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -30,4 +32,8 @@
     <string name="choose_work">Work</string>
     <string name="ct_name">No text</string>
     <string name="ct_word">No word</string>
+    <string name="dialog_text">Choose date</string>
+    <string name="dialog_btn">OK</string>
+    <string name="home">Home</string>
+    <string name="expenses">Expenses</string>
 </resources>

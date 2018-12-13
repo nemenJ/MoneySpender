@@ -27,6 +27,7 @@ public class CategoriesDatabase { // class for work with room DB and for ChooseC
     private String categoryName;
 
 
+
     public void setId(long id) {
         this.id = id;
     }

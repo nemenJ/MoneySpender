@@ -33,6 +33,7 @@ public class YourCostFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_your_cost, container, false);
 
+
         //Adding *plus* button  and click listener for it
         ImageButton costChange = view.findViewById(R.id.button_cost);
         costChange.setOnClickListener(new View.OnClickListener() {

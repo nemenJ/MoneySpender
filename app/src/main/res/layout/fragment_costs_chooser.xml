@@ -133,6 +133,7 @@
                 android:text="@string/cost_date"
                 android:layout_marginTop="25dp"
                 android:textSize="15sp"
+                android:id="@+id/cost_date"
                 android:gravity="end"/>
 
             <View

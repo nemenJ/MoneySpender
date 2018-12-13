@@ -1,8 +1,10 @@
 package com.practice.moneyspender.adapters;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,6 +36,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
 
 
+
     class CategoriesViewHolder extends RecyclerView.ViewHolder{
         private TextView circleCategoryTextView;
         private TextView nameCategoryTextView;
@@ -44,6 +47,13 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
             circleCategoryTextView = itemView.findViewById(R.id.circle_category_name);
             nameCategoryTextView = itemView.findViewById(R.id.category_name);
+
+
+
+//            GradientDrawable magnitudeCircle = (GradientDrawable) circleCategoryTextView.getBackground();
+//            int magnitudeColor = getCategoryColor(ctDatabase.size());
+//            magnitudeCircle.setColor(magnitudeColor);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -69,7 +79,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
     private final LayoutInflater inflater;
 
-    public CategoriesAdapter(Context context){
+    public CategoriesAdapter(Context context ){
         this.context = context;
         inflater = LayoutInflater.from(context);
     }
@@ -108,6 +118,46 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
         }
 
 
+    private int getCategoryColor(double magnitude) {
+        int categoryColorResourceId;
+        int magnitudeFloor = (int) Math.floor(magnitude);
+        switch (magnitudeFloor) {
+            case 0:
+            case 1:
+                categoryColorResourceId = R.color.category1;
+                break;
+            case 2:
+                categoryColorResourceId = R.color.category2;
+                break;
+            case 3:
+                categoryColorResourceId = R.color.category3;
+                break;
+            case 4:
+                categoryColorResourceId = R.color.category4;
+                break;
+            case 5:
+                categoryColorResourceId = R.color.category5;
+                break;
+            case 6:
+                categoryColorResourceId = R.color.category6;
+                break;
+            case 7:
+                categoryColorResourceId = R.color.category7;
+                break;
+            case 8:
+                categoryColorResourceId = R.color.category8;
+                break;
+            case 9:
+                categoryColorResourceId = R.color.category9;
+                break;
+            default:
+                categoryColorResourceId = R.color.category10;
+                break;
+        }
+
+        return ContextCompat.getColor(context, categoryColorResourceId);
+    }
+
 
     @Override
     public int getItemCount() {
@@ -118,6 +168,8 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
 
         else return 0;
     }
+
+
 
 
 }
