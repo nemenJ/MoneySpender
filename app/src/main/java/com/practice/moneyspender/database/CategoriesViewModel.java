@@ -9,15 +9,18 @@ import java.util.List;
 
 public class CategoriesViewModel extends AndroidViewModel {
 
-    private DatabaseInit dbInit;
+    private CategoriesRepository dbInit;
+    //for cache list
     private LiveData<List<CategoriesDatabase>>  categoriesAll;
 
-
+    //ViewModel for communication repository with user interface
+    //also view model safe UI date
 
     public CategoriesViewModel(@NonNull Application application) {
         super(application);
 
-        dbInit = new DatabaseInit(application);
+        dbInit = new CategoriesRepository(application);
+        //get categories from list
         categoriesAll = dbInit.getAllCategories();
     }
 

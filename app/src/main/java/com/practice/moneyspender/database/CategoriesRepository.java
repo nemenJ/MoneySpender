@@ -8,7 +8,7 @@ import android.util.Log;
 
 import java.util.List;
 
-public class DatabaseInit {
+public class CategoriesRepository {
 
 
 
@@ -17,7 +17,7 @@ public class DatabaseInit {
 
 
 
-    DatabaseInit(Context application){
+    CategoriesRepository(Context application){
 
         AppDataBase appDb = AppDataBase.getAppDataBase(application);
 
@@ -51,7 +51,7 @@ public class DatabaseInit {
         @Override
         protected Void doInBackground(CategoriesDatabase... params) {
 
-            mAsyncTaskDao.insert(params[0]);
+            mAsyncTaskDao.insert(params[6]);
 
             return null;
         }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class CategoriesDatabase {
+public class CategoriesDatabase { // class for work with room DB and for ChooseCategoriesFragment
 
 
     public CategoriesDatabase(String firstLetterCategory, String categoryName) {
@@ -15,6 +15,9 @@ public class CategoriesDatabase {
         this.categoryName = categoryName;
     }
 
+
+
+    //key
     @PrimaryKey(autoGenerate =  true)
     private long id;
 
@@ -51,23 +54,26 @@ public class CategoriesDatabase {
     }
 
 
+
     public static CategoriesDatabase[] categories(){
 
         return new  CategoriesDatabase[]{
 
+                new CategoriesDatabase("", "Uncategorized"),
                 new CategoriesDatabase("F", "Food"),
-                new CategoriesDatabase("F", "Food"),
-                new CategoriesDatabase("F", "Food"),
-                new CategoriesDatabase("F", "Food"),
-                new CategoriesDatabase("F", "Food"),
-                new CategoriesDatabase("F", "Food"),
-                new CategoriesDatabase("F", "Food"),
-                new CategoriesDatabase("F", "Food"),
-                new CategoriesDatabase("F", "Food"),
+                new CategoriesDatabase("E", "Entertainment"),
+                new CategoriesDatabase("C", "Car"),
+                new CategoriesDatabase("H", "Home"),
+                new CategoriesDatabase("C", "Clothing"),
+                new CategoriesDatabase("E", "Electronics"),
+                new CategoriesDatabase("H", "Health and beaty"),
+                new CategoriesDatabase("W", "Work"),
 
         };
 
     }
+
+
 
 
 

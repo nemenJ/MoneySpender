@@ -10,15 +10,21 @@ import android.support.annotation.NonNull;
 
 import java.util.concurrent.Executors;
 
+//Main class for working with DataBase
+
+                        //Entity                  //DataBase version
 @Database(entities =  {CategoriesDatabase.class}, version = 1)
 public abstract class AppDataBase extends RoomDatabase {
 
+    //dao for working with dataBase
     public abstract CategoriesDao categoriesDao();
+
+    //singleton to prevent having multiple instances of the database opened at the same time.
     private static volatile AppDataBase INSTANCE;
 
 
      static AppDataBase getAppDataBase(final Context context) {
-
+         //code for getting and bulding DB
         if(INSTANCE == null) {
             synchronized (AppDataBase.class) {
 
@@ -63,7 +69,6 @@ public abstract class AppDataBase extends RoomDatabase {
 
     public static class PopulateByAsyncTask extends AsyncTask<Void, Void, Void>{
 
-
             private final CategoriesDao ctDao;
 
             PopulateByAsyncTask(AppDataBase appDb){
@@ -74,6 +79,7 @@ public abstract class AppDataBase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(final Void... params) {
+
 
 
 

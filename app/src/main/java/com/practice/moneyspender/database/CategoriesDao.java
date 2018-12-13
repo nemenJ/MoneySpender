@@ -9,12 +9,18 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
+//dao for giving queries for DB
 @Dao
 public interface CategoriesDao {
 
+    //Methods for working with DB
+
+    //method for getting all categories
     @Query("SELECT * FROM categoriesdatabase")
+    //use LiveData for data observing and for  running the query asynchronously on a background thread
    LiveData<List<CategoriesDatabase>> getAll();
 
+    //method for getting category by id
     @Query("SELECT * FROM categoriesdatabase WHERE id = :id")
     CategoriesDatabase getById(long id);
 

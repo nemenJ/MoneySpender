@@ -29,9 +29,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //DatabaseInit
-
-
 
         //Toolbar add
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -60,6 +57,7 @@ public class MainActivity extends AppCompatActivity
         Fragment fragmentCost = new YourCostFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.content_framelayout, fragmentCost);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
         //Images Picasso
@@ -109,6 +107,9 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+
+
+    //When draw will close
     @Override
     public void onBackPressed() {
 

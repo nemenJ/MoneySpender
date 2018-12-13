@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
 
@@ -20,7 +21,7 @@
             android:gravity="center"
             android:id="@+id/circle_category_name"
             android:textColor="@color/white"
-            android:textSize="30dp" />
+            android:textSize="30sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -28,7 +29,7 @@
             android:id="@+id/category_name"
             android:layout_gravity="center_vertical"
             android:gravity="start"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:textSize="18sp" />
 
 

@@ -2,9 +2,12 @@ package com.practice.moneyspender.view.fragments;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +16,16 @@ import android.widget.TextView;
 
 import com.practice.moneyspender.R;
 
+import org.w3c.dom.Text;
+
 public class CostsChooserFragment extends Fragment {
 
 
     private static final String NAME = "name";
     private String name;
+    private TextView costCategory;
+
+
 
 
     @Override
@@ -26,9 +34,11 @@ public class CostsChooserFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_costs_chooser, container, false);
 
-        //Тупа back to home activity , i find it on  https://medium.com/android-grid/how-to-implement-back-up-button-on-toolbar-android-studio-c272bbc0f1b0
+        // back to home activity , i find it on  https://medium.com/android-grid/how-to-implement-back-up-button-on-toolbar-android-studio-c272bbc0f1b0
         Toolbar toolbar = view.findViewById(R.id.toolbar_choose_fragment);
+         costCategory = view.findViewById(R.id.cost_category);
 
+         //adding back arrow for toolbar
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_keyboard_arrow_left);
         toolbar.setNavigationOnClickListener(new View.OnClickListener(){
@@ -36,19 +46,25 @@ public class CostsChooserFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+                //manager for back to YourCostFragment
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.popBackStack();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_framelayout, new YourCostFragment())
+                        .commit();
+
+                costCategory.setText(name);
 
             }
         });
 
 
 
-        name = getArguments().getString(NAME);
 
 
+        name = getArguments() != null ? getArguments().getString(NAME) : "Select category";
 
-        TextView costCategory = view.findViewById(R.id.cost_category);
+        //transfer name
+        costCategory.setText(name);
         costCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,7 +72,7 @@ public class CostsChooserFragment extends Fragment {
                 FragmentManager fm = getActivity().getSupportFragmentManager();
                 fm.beginTransaction()
                         .addToBackStack(null)
-                        .replace(R.id.content_framelayout, new ChooseCategoriesFragment())
+                        .add(R.id.content_framelayout, new ChooseCategoriesFragment())
                         .commit();
 
             }
@@ -75,7 +91,7 @@ public class CostsChooserFragment extends Fragment {
         CostsChooserFragment fragment = new CostsChooserFragment();
         fragment.setArguments(args);
         return fragment;
-        
+
     }
 
 }
