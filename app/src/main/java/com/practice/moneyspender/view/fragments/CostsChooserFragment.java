@@ -25,7 +25,9 @@ public class CostsChooserFragment extends Fragment {
     private String name;
     private TextView costCategory;
     private TextView costDate;
+    private TextView costTitle;
     private static final String DIALOG_DATE = "DialogDate";
+    private static final String DIALOG_TITLE = "DialogTitle";
 
 
 
@@ -41,7 +43,9 @@ public class CostsChooserFragment extends Fragment {
         toolbar.setTitle(R.string.fragment_chooser);
          costCategory = view.findViewById(R.id.cost_category);
          costDate = view.findViewById(R.id.cost_date);
+         costTitle = view.findViewById(R.id.cost_title);
 
+         //open dialog fragment when you click on date textview
          costDate.setOnClickListener(new View.OnClickListener(){
              @Override
              public void onClick(View view) {
@@ -51,6 +55,15 @@ public class CostsChooserFragment extends Fragment {
                  fragmentDialog.show(fragmentManager, DIALOG_DATE);
 
 
+             }
+         });
+
+         costTitle.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 FragmentManager fm = getActivity().getSupportFragmentManager();
+                 FragmentDialogTitle fdTitle = new FragmentDialogTitle();
+                 fdTitle.show(fm, DIALOG_TITLE);
              }
          });
 
@@ -105,6 +118,12 @@ public class CostsChooserFragment extends Fragment {
 
     }
 
+    private  void showEditDialog(){
+
+
+
+    }
+
 
     public static CostsChooserFragment newInstance(String name) {
 
@@ -115,5 +134,7 @@ public class CostsChooserFragment extends Fragment {
         return fragment;
 
     }
+
+
 
 }

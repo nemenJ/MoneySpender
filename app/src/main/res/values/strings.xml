@@ -33,6 +33,8 @@
     <string name="ct_name">No text</string>
     <string name="ct_word">No word</string>
     <string name="dialog_text">Choose date</string>
+    <string name="dialog_title_enter">Enter title</string>
+    <string name="dialog_title">Enter your title</string>
     <string name="dialog_btn">OK</string>
     <string name="home">Home</string>
     <string name="expenses">Expenses</string>
